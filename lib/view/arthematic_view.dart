@@ -46,6 +46,8 @@ class _ArthematicViewState extends State<ArthematicView> {
     });
   }
 
+  final myKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,15 +59,22 @@ class _ArthematicViewState extends State<ArthematicView> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
+          key: myKey,
           child: Column(
             children: [
               const SizedBox(height: 8),
-              TextField(
+              TextFormField(
                 controller: firstController,
                 decoration: const InputDecoration(
                   labelText: "Enter the first Num",
                   border: OutlineInputBorder(),
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'please enter First number';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 8),
               TextFormField(
@@ -77,7 +86,7 @@ class _ArthematicViewState extends State<ArthematicView> {
                 ),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'please enter first number';
+                    return 'please enter Second number';
                   }
                   return null;
                 },
@@ -88,7 +97,9 @@ class _ArthematicViewState extends State<ArthematicView> {
                 child: ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      add();
+                      if (myKey.currentState!.validate()) {
+                        add();
+                      }
                     });
                   },
                   child: const Text('Add'),
@@ -100,7 +111,9 @@ class _ArthematicViewState extends State<ArthematicView> {
                 child: ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      sub();
+                      if (myKey.currentState!.validate()) {
+                        sub();
+                      }
                     });
                   },
                   child: const Text('Sub'),
