@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:simple_interest/view/area_view.dart';
 import 'package:simple_interest/view/arthematic_view.dart';
+import 'package:simple_interest/view/class_exercise_view.dart';
 import 'package:simple_interest/view/column_view.dart';
 import 'package:simple_interest/view/dashboard_view.dart';
+import 'package:simple_interest/view/login_page_view.dart';
+import 'package:simple_interest/view/media_query_view.dart';
 import 'package:simple_interest/view/name_loop_view.dart';
 import 'package:simple_interest/view/riched_text_view.dart';
 import 'package:simple_interest/view/simple_interest_view.dart';
@@ -23,6 +26,9 @@ class App extends StatelessWidget {
         "/nameLoopRoute": (context) => const NameLoopView(),
         "/richedtextRoute": (context) => const RichedTextView(),
         "/columnRoute": (context) => const ColumnView(),
+        "/MediaQueryRoute": (context) => const MediaQueryView(),
+        "/ClassExerciseRoute": (context) => const ClassExerciseView(),
+        "/LoginPageRoute": (context) => const LoginPageView()
       },
     );
   }

@@ -8,27 +8,34 @@ class SimpleInterestView extends StatefulWidget {
 }
 
 class _SimpleInterestViewState extends State<SimpleInterestView> {
-  double principle = 0;
-  double time = 0;
-  double rate = 0;
+  final principalController = TextEditingController();
+  final timeController = TextEditingController();
+  final rateController = TextEditingController();
   double result = 0;
+  void simpleInterest() {}
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Simple Interest'),
+        title: const Text('Simple Interest'),
         centerTitle: true,
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             const SizedBox(height: 8),
             TextField(
-              onChanged: (value) {
-                principle = double.parse(value);
-              },
+              controller: principalController,
               decoration: const InputDecoration(
                 labelText: "Enter the principle",
                 border: OutlineInputBorder(),
@@ -36,9 +43,7 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
             ),
             const SizedBox(height: 8),
             TextField(
-              onChanged: (value) {
-                time = double.parse(value);
-              },
+              controller: timeController,
               decoration: const InputDecoration(
                 labelText: "Enter the time",
                 border: OutlineInputBorder(),
@@ -46,9 +51,7 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
             ),
             const SizedBox(height: 8),
             TextField(
-              onChanged: (value) {
-                rate = double.parse(value);
-              },
+              controller: rateController,
               decoration: const InputDecoration(
                 labelText: "Enter the rate",
                 border: OutlineInputBorder(),
@@ -59,9 +62,7 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  setState(() {
-                    result = (principle * time * rate) / 100;
-                  });
+                  setState(() {});
                 },
                 child: const Text('Calculate the simple interest'),
               ),

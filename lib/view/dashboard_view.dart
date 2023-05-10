@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -72,6 +70,33 @@ class DashboardView extends StatelessWidget {
                     Navigator.pushNamed(context, "/columnRoute");
                   },
                   child: const Text('Column'),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/MediaQueryRoute");
+                  },
+                  child: const Text('container'),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/ClassExerciseRoute");
+                  },
+                  child: const Text('Exercise'),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/LoginPageRoute");
+                  },
+                  child: const Text('Login'),
                 ),
               ),
             ],
